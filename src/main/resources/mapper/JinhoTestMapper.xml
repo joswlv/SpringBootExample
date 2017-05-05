@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zino.undue.com.zino.undue.dao.JinhoDao">
+
+    <resultMap type="com.zino.undue.com.zino.undue.model.JinhoModel" id="getData">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="text" column="text"/>
+    </resultMap>
+
+    <select id="selectAllList" resultMap="getData">
+        SELECT id, name, text
+        FROM jinhotest
+    </select>
+
+    <select id="selectOne" resultMap="getData" parameterType="String">
+        SELECT id, name, text
+        FROM jinhotest
+        WHERE name = #{name}
+    </select>
+</mapper>
